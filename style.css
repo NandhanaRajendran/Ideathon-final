@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: black;
+    color: #00FF99;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #00FF99;
+  }
+
+  p {
+    font-size: 1.1em;
+    color: #00FF99;
+  }
+
+  #tapBtn {
+    margin: 30px auto;
+    padding: 50px;
+    font-size: 2rem;
+    border-radius: 50%;
+    background-color: #00FF99;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    display: block;
+    box-shadow: 0 0 20px ;
+  }
+
+  button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #00FF99;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 0 10px ;
+  }
+
+  .output {
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+
+  .shortcuts {
+    margin-top: 20px;
+  }
+
+  .shortcuts p {
+    font-weight: bold;
+  }
+
+  .toggle-section {
+    margin-top: 20px;
+  }
+
+  .toggle-box {
+    display: none;
+    margin-top: 10px;
+    background-color: #111;
+    padding: 15px;
+    border-radius: 10px;
+    color: #00FF99;
+  }
+
+  .morse-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+    font-family: monospace;
+  }
+
+  .morse-grid div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dot, .dash {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: blue;
+  }
+
+  .dash {
+    width: 18px;
+    height: 4px;
+    background-color: red;
+    border-radius: 2px;
+  }
+
+  ol {
+    text-align: left;
+    max-width: 500px;
+    margin: auto;
+  }
+  #contactsPage {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: auto;
+  background-color: #111;
+  color: #00FF99;
+  border: 2px solid #00FF99;
+  padding: 20px;
+  z-index: 999;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #00FF99;
+  text-align: left;
+  overflow-y: auto;
+}
+
+#contactList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#contactList li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #00FF99;
+}
+
+#contactList button {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  background-color: #00FF99;
+  color: black;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 6px;
+}
+
+#contactIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 14px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 12px;
+  background-color: #00FF99;
+}

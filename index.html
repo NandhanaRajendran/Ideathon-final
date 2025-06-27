@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TapSpeak - Emergency Morse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🔘 TapSpeak</h1>
+    <p>Tap to communicate. Works even when you can't speak.</p>
+    <div class="info">
+        <p><strong>📍 Location:</strong> <span id="locationInfo">Fetching...</span></p>
+        <p><strong>🔋 Battery:</strong> <span id="batteryInfo">Detecting...</span></p>
+      </div>
+      
+      <div id="messageLog"></div>
+      
+    <button id="tapBtn">TAP</button>
+  
+    <div class="output">
+      <p>Morse: <span id="morseDisplay"></span></p>
+      <p>Text: <span id="textDisplay"></span></p>
+    </div>
+  
+    <button id="speak">🔊 Speak</button>
+    <button onclick="clearMessage()">🧹 Clear</button>
+  
+    <div class="shortcuts">
+      <p><strong>Emergency Shortcuts:</strong></p>
+      <button onclick="useShortcut('SOS')">SOS</button>
+      <button onclick="useShortcut('HELP')">HELP</button>
+      <button onclick="useShortcut('YES')">YES</button>
+      <button onclick="useShortcut('NO')">NO</button>
+    </div>
+  
+    <div class="toggle-section">
+      <button onclick="toggleInstructions()">📖 Instructions</button>
+      <button onclick="toggleGuide()">📘 Morse Code Guide</button>
+      <div class="toggle-box" id="instructionBox">
+        <h2>📝 How to Use TapSpeak</h2>
+        <ol>
+          <li><strong>Tap the "TAP" button:</strong> Press and hold it.</li>
+          <li><strong>Short Tap = Dot (·)</strong> — press quickly (less than 300ms).</li>
+          <li><strong>Long Tap = Dash (–)</strong> — press longer (300ms or more).</li>
+          <li><strong>Pause 1 second</strong> between letters to auto-convert.</li>
+          <li><strong>Text Output</strong> shows your decoded message.</li>
+          <li>Click 🔊 <strong>Speak</strong> to hear the message spoken aloud.</li>
+          <li>Use shortcut buttons for common emergency words.</li>
+          <li>Click 📘 <strong>Morse Code Guide</strong> to view all Morse codes.</li>
+        </ol>
+      </div>
+  
+      <div class="toggle-box" id="guideBox">
+        <div class="morse-grid">
+          <div><strong>A</strong> <span class="dot"></span><span class="dash"></span></div>
+          <div><strong>B</strong> <span class="dash"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div><strong>C</strong> <span class="dash"></span><span class="dot"></span><span class="dash"></span><span class="dot"></span></div>
+          <div><strong>D</strong> <span class="dash"></span><span class="dot"></span><span class="dot"></span></div>
+          <div><strong>E</strong> <span class="dot"></span></div>
+          <div><strong>F</strong> <span class="dot"></span><span class="dot"></span><span class="dash"></span><span class="dot"></span></div>
+          <div><strong>G</strong> <span class="dash"></span><span class="dash"></span><span class="dot"></span></div>
+          <div><strong>H</strong> <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div><strong>I</strong> <span class="dot"></span><span class="dot"></span></div>
+          <div><strong>J</strong> <span class="dot"></span><span class="dash"></span><span class="dash"></span><span class="dash"></span></div>
+          <div><strong>K</strong> <span class="dash"></span><span class="dot"></span><span class="dash"></span></div>
+          <div><strong>L</strong> <span class="dot"></span><span class="dash"></span><span class="dot"></span><span class="dot"></span></div>
+          <div><strong>M</strong> <span class="dash"></span><span class="dash"></span></div>
+          <div><strong>N</strong> <span class="dash"></span><span class="dot"></span></div>
+          <div><strong>O</strong> <span class="dash"></span><span class="dash"></span><span class="dash"></span></div>
+          <div><strong>P</strong> <span class="dot"></span><span class="dash"></span><span class="dash"></span><span class="dot"></span></div>
+          <div><strong>Q</strong> <span class="dash"></span><span class="dash"></span><span class="dot"></span><span class="dash"></span></div>
+          <div><strong>R</strong> <span class="dot"></span><span class="dash"></span><span class="dot"></span></div>
+          <div><strong>S</strong> <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div><strong>T</strong> <span class="dash"></span></div>
+          <div><strong>U</strong> <span class="dot"></span><span class="dot"></span><span class="dash"></span></div>
+          <div><strong>V</strong> <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dash"></span></div>
+          <div><strong>W</strong> <span class="dot"></span><span class="dash"></span><span class="dash"></span></div>
+          <div><strong>X</strong> <span class="dash"></span><span class="dot"></span><span class="dot"></span><span class="dash"></span></div>
+          <div><strong>Y</strong> <span class="dash"></span><span class="dot"></span><span class="dash"></span><span class="dash"></span></div>
+          <div><strong>Z</strong> <span class="dash"></span><span class="dash"></span><span class="dot"></span><span class="dot"></span></div>
+          <!-- Add numbers and symbols here if needed -->
+        </div>
+        <div class="morse-grid">
+            <div><strong style="font-size: larger;" >Instant messages</strong></div>
+        </div>
+        <div class="morse-grid-instant-messages">
+            <div><strong>I am Ok</strong> <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div><strong>In Danger</strong> <span class="dash"></span><span class="dot"></span><span class="dash"></span></div>
+            <div><strong>I can't move, please come quickly</strong> <span class="dot"></span><span class="dot"></span><span class="dash"></span><span class="dot"></span><span class="dash"></span></div>
+            <div><strong>I am injured and need medical attention</strong> <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dash"></span></div>
+            <div><strong>I am safe but stuck, please guide me</strong> <span class="dot"></span><span class="dash"></span><span class="dot"></span><span class="dot"></span></div>
+            <div><strong>Please bring water and medicine</strong> <span class="dot"></span><span class="dash"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div><strong>Call my family, I need their support</strong> <span class="dash"></span><span class="dash"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+      </div>
+    </div>
+    <button id="contactIcon" onclick="openContacts()">📞 Contacts</button>
+    <div id="contactsPage" style="display: none;">
+  <h2>📇 Emergency Contacts</h2>
+  <ul id="contactList">
+    <!-- Contacts will be added here -->
+  </ul>
+  <button onclick="addContact()">➕ Add Contact</button>
+  <button onclick="closeContacts()">❌ Close</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
