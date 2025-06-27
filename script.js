@@ -74,12 +74,12 @@ const tapBtn = document.getElementById('tapBtn');
 
 
         // 🆕 Auto-send the message 3 seconds after last tap
-    if (message.trim() !== "") {
-        if (window.autoSendTimeout) clearTimeout(window.autoSendTimeout);
-        window.autoSendTimeout = setTimeout(() => {
-        sendMessage(); // ✅ Auto send without button
-        }, 3000); // adjust delay if needed
-    }
+    // if (message.trim() !== "") {
+    //     if (window.autoSendTimeout) clearTimeout(window.autoSendTimeout);
+    //     window.autoSendTimeout = setTimeout(() => {
+    //     sendMessage(); // ✅ Auto send without button
+    //     }, 3000); // adjust delay if needed
+    // }
 
       }, 1000);
     });
